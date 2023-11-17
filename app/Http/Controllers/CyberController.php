@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\CyberSource;
 use Illuminate\Http\Request;
 
-
 class CyberController extends Controller
 {
     /**
@@ -16,9 +15,12 @@ class CyberController extends Controller
     public function index()
     {
         //dd("hola");
-       $cs = new CyberSource(); 
-       $res = $cs->createPaymentContext();
-       dd($res);
+        $cs = new CyberSource();
+        $res = $cs->createPaymentContext();
+        $mensaje = $res['response']['rmsg'];
+
+        // Imprimir el mensaje
+        echo("mensaje : ".$mensaje);
     }
 
     /**
